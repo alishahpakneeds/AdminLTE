@@ -9,12 +9,14 @@
     "responsive",
     "back-end",
     "template",
-    "web"
+    "theme",
+    "web",
+    "admin"
   ],
   "authors": [
     {
       "name": "Abdullah Almsaeed",
-      "email": "support@almsaeedstudio.com"
+      "email": "abdullah@almsaeedstudio.com"
     }
   ],
   "license": "MIT",

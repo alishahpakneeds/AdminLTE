@@ -647,26 +647,6 @@
               // if so, remove the element from the "Draggable Events" list
               $(this).remove();
             }
-            console.log("drop");
-
-          },
-          dayClick: function(date, jsEvent, view) {
-
-              console.log('Clicked on: ' + date.format());
-
-              console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-              console.log('Current view: ' + view.name);
-              console.log($(this).data('eventObject'));
-
-              // change the day's background color just for fun
-              $(this).css('background-color', 'red');
-
-              var newEvent = new Object();
-              newEvent.title = "some text here";
-              newEvent.start = date;
-              newEvent.allDay = false;
-              $('#calendar').fullCalendar( 'renderEvent', newEvent );
 
           }
         });

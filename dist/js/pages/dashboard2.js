@@ -1,10 +1,6 @@
-'use strict';
 $(function () {
-  
-  //Simple implementation of direct chat contact pane toggle (TEMPORARY)
-  $('[data-widget="chat-pane-toggle"]').click(function(){
-    $("#myDirectChat").toggleClass('direct-chat-contacts-open');
-  });
+
+  'use strict';
 
   /* ChartJS
    * -------
@@ -25,12 +21,12 @@ $(function () {
     datasets: [
       {
         label: "Electronics",
-        fillColor: "rgba(210, 214, 222, 1)",
-        strokeColor: "rgba(210, 214, 222, 1)",
-        pointColor: "rgba(210, 214, 222, 1)",
+        fillColor: "rgb(210, 214, 222)",
+        strokeColor: "rgb(210, 214, 222)",
+        pointColor: "rgb(210, 214, 222)",
         pointStrokeColor: "#c1c7d1",
         pointHighlightFill: "#fff",
-        pointHighlightStroke: "rgba(220,220,220,1)",
+        pointHighlightStroke: "rgb(220,220,220)",
         data: [65, 59, 80, 81, 56, 55, 40]
       },
       {
@@ -78,9 +74,9 @@ $(function () {
     //Boolean - Whether to fill the dataset with a color
     datasetFill: true,
     //String - A legend template
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%=datasets[i].label%></li><%}%></ul>",
     //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     //Boolean - whether to make the chart responsive to window resizing
     responsive: true
   };
@@ -142,7 +138,7 @@ $(function () {
     //String - The colour of each segment stroke
     segmentStrokeColor: "#fff",
     //Number - The width of each segment stroke
-    segmentStrokeWidth: 2,
+    segmentStrokeWidth: 1,
     //Number - The percentage of the chart that we cut out of the middle
     percentageInnerCutout: 50, // This is 0 for Pie charts
     //Number - Amount of animation steps
@@ -158,10 +154,12 @@ $(function () {
     // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
     maintainAspectRatio: false,
     //String - A legend template
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
+    //String - A tooltip template
+    tooltipTemplate: "<%=value %> <%=label%> users"
   };
   //Create pie or douhnut chart
-  // You can switch between pie and douhnut using the method below.  
+  // You can switch between pie and douhnut using the method below.
   pieChart.Doughnut(PieData, pieOptions);
   //-----------------
   //- END PIE CHART -
@@ -192,8 +190,7 @@ $(function () {
       selected: {
         fill: 'yellow'
       },
-      selectedHover: {
-      }
+      selectedHover: {}
     },
     markerStyle: {
       initial: {
